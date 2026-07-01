@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specifiche Interventi Tecnici - Terrenzio Fabio</title>
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --primary-dark: #0369a1;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --success-color: #16a34a;
+            --error-color: #dc2626;
+            --warning-color: #ea580c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #94a3b8;
+            font-size: 11pt;
+        }
+
+        .meta-info {
+            margin-top: 20px;
+            border-top: 1px solid #334155;
+            padding-top: 15px;
+            font-size: 9.5pt;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .meta-info strong {
+            color: white;
+        }
+
+        .intro-box {
+            background-color: #e0f2fe;
+            border-left: 5px solid #0284c7;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-size: 11pt;
+            color: #0369a1;
+        }
+
+        .section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #0f172a;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h3 {
+            font-size: 11pt;
+            color: var(--primary-dark);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0 0 15px 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 0 0 20px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .media-container {
+            background-color: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .media-container p {
+            text-align: center;
+            margin: 5px 0;
+            font-size: 9.5pt;
+        }
+
+        .media-slot {
+            margin: 15px 0;
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .log-table th {
+            background-color: #0f172a;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 10pt;
+        }
+
+        .log-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 9.5pt;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .log-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 8.5pt;
+            font-weight: bold;
+        }
+
+        .badge-danger { background-color: #fee2e2; color: #991b1b; }
+        .badge-warning { background-color: #ffedd5; color: #9a3412; }
+        .badge-info { background-color: #e0f2fe; color: #0369a1; }
+
+        .callout {
+            background-color: #f0f9ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            color: #0369a1;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- HEADER DOCUMENTO -->
+        <div class="header">
+            <h1>Specifiche Interventi Tecnici</h1>
+            <p>Relazione per opere elettriche e ottimizzazione del sistema energetico</p>
+            
+            <div class="meta-info">
+                <strong>Committente:</strong> Terrenzio Fabio<br>
+                <strong>Inverter FV:</strong> SolarEdge SE6000H (10kWp nominali)<br>
+                <strong>Accumulo:</strong> Tesla Powerwall 2 + Gateway 2
+            </div>
+        </div>
+
+        <!-- PREMESSA INTRODUTTIVA -->
+        <div class="intro-box">
+            <p>Ciao Eduardo, di seguito gli interventi da fare. Al Punto 1 c'è di nuovo il problema del "Fuori rete", forse avevamo l'impressione fosse stato risolto ma non è così o forse è semplicemente ritornato. L'intelligenza artificiale propone una soluzione ma "prendila con le pinze", potrebbe anche essere sbagliata, sei tu l'esperto. I punti 3 e 4 richiedono interventi di muratura. Stuccatura, rasatura e tinteggiatura successive le faccio io. Fammi sapere cosa puoi fare, dubbi o chiarimenti.</p>
+        </div>
+
+        <!-- PUNTO 1 -->
+        <div class="section" id="punto-1">
+            <h2>Punto 1: Problema funzionamento ad isola</h2>
+            <p>Sabato 27 giugno 2026 ho fatto prove in modalità <strong>"off-grid" (funzionamento ad isola)</strong>, e il fotovoltaico ha smesso subito di produrre non appena staccata la rete. Quando il Tesla Gateway 2 seziona la linea ENEL, il blocco elettrico dei pannelli FV da parte dell'inverter è immediato (spia rossa fissa). Questo blocco avviene all'istante, anche se l'app Tesla ci mette qualche secondo ad aggiornare la grafica sul telefono; la casa resta alimentata solo dalla batteria Powerwall 2.</p>
+            <p>La prima prova è partita alle <strong>ore 08:06:31</strong> con batteria al 30% ed è stata mantenuta in isola per più di mezz'ora, ma l'inverter è rimasto piantato in protezione senza mai riavviare i pannelli. Più tardi, alle <strong>ore 09:48:53</strong> (con batteria al 50%), ho fatto un secondo tentativo che ha dato lo stesso identico blocco immediato. Infine, ho eseguito una <strong>terza prova in serata</strong> con la batteria Powerwall 2 carica oltre l'85%: anche in questa circostanza si è verificato un blocco istantaneo della produzione, sebbene con un comportamento della frequenza differente rispetto alle prove diurne.</p>
+            
+            <div class="callout">
+                <div class="callout-title">Diagnosi Tecnica</div>
+                <p>In rete (on-grid) ENEL inchioda la frequenza a <strong>50,00 Hz</strong> e tutto funziona: la produzione FV nell'app Tesla è coerente con il monitoraggio SolarEdge. Il <strong>metering del fotovoltaico è quindi corretto</strong> e non è la causa del problema.</p>
+                <p>In isola (off-grid) il Gateway Tesla forma la micro-rete (sorgente <em>grid-forming</em>) e la frequenza <strong>non resta a 50 Hz</strong>. Nelle prime due prove diurne, a FV spento, l'isola si <strong>assesta a ~49,50 Hz</strong> (mezzo hertz sotto nominale). La differenza tra i due test diurni riguarda il primo istante dello stacco: alle 08:06 (poco sole, nessun surplus) va dritta a 49,5 e l'inverter scatta su soglia minima (Min2); alle 09:48 (più sole, <strong>surplus FV reale</strong>) c'è prima un <strong>picco verso l'alto a ~53 Hz</strong> e l'inverter scatta su soglia massima (Max2), poi l'isola ricade a 49,5. Nella terza prova serale, avendo la batteria oltre l'85%, la micro-rete si è stabilizzata direttamente a <strong>52,00 Hz</strong>, determinando comunque il blocco immediato dei pannelli. I valori di frequenza sono stati tutti misurati direttamente al multimetro; per le prime due prove diurne gli scatti e le anomalie sono confermati anche dal log dell'inverter, mentre la prova serale è stata riscontrata esclusivamente tramite multimetro.</p>
+                <p><strong>Tre fenomeni distinti:</strong></p>
+                <p>(1) <strong>Il picco a ~53 Hz (solo prova 2, solo in presenza di surplus) è un'azione del Gateway:</strong> è curtailment reale. Nell'istante dello stacco il surplus FV che prima andava in rete non ha più sbocco e il Gateway sbatte la frequenza in alto per frenare i pannelli — ma in modo <strong>eccessivo</strong> (53 Hz) per un surplus che a batteria 50% (≈5 kW di margine) sarebbe assorbibile a 50 Hz. Che il picco compaia solo quando c'è sole/surplus conferma che è curtailment e non anti-islanding.</p>
+                <p>(2) <strong>L'assestamento a ~49,50 Hz (entrambe le prove diurne) è il comportamento del gateway che si "pianta" al di sotto dei 50Hz</strong>, proprio sul bordo inferiore della finestra dell'inverter. Questo spiega il Min2 nella prova 1 e spiega perché l'inverter <strong>non si riaggancia mai all'isola. Nota bene:</strong> da logica standard Tesla, lo spostamento di frequenza (<em>Frequency Shift</em>) utilizzato per tagliare o modulare i pannelli deve avvenire <strong>verso l'alto a 52,00 Hz</strong>, ed esclusivamente <strong>quando la batteria è quasi carica (SOC superiore all'85%)</strong>. Questo avviene nel test serale ed è un comportamento corretto da parte del Gateway. Il fatto, invece, che nelle prime due prove il Gateway si attesti fisicamente a <strong>49,50 Hz stabili con batteria scarica (30-50%)</strong> nelle ore diurne è un comportamento <strong>fuori specifica</strong> che inibisce il riavvio del fotovoltaico.</p>
+                <p>(3) <strong>Il comportamento sequenziale al rientro in rete (transizione On-Grid):</strong> Quando viene terminata la prova e si ripristina la rete, il Gateway collega immediatamente ENEL e l'inverter SolarEdge, ma <strong>stacca temporaneamente la Powerwall</strong>, riattivandola solo in un secondo momento. Questo fenomeno conferma empiricamente la diagnosi: essendosi incastrato a 49,50 Hz in modalità isola, il Gateway non può rimettere in parallelo l'accumulo con i 50,00 Hz di ENEL senza rischiare un distruttivo sfasamento elettrico. Deve perciò isolare la batteria, far digerire all'inverter i 50,00 Hz puliti della rete per consentirgli lo sblocco, e solo dopo risincronizzare l'accumulo in modalità grid-following.</p>
+            </div>
+
+            <h3>Storico Eventi e Rilevazioni (Test del 27/06/2026):</h3>
+            <table class="log-table">
+                <thead>
+                    <tr>
+                        <th>Orario / Prova</th>
+                        <th>Riscontro Hardware / Errore</th>
+                        <th>Stato Sistema</th>
+                        <th>Comportamento Rilevato</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>08:06:31</strong></td>
+                        <td><span class="badge badge-danger">Log Inverter + Multimetro</span><br><small>Errore 18x49 (F-L1 Min2)</small></td>
+                        <td>Batteria al 30%<br>Prova diurna lunga (>30 min)</td>
+                        <td><strong>Sotto-frequenza d'isola permanente.</strong> Frequenza misurata al multimetro e registrata a log: <strong>49,50 Hz</strong>. La logica nativa del Gateway prevede l'innalzamento della frequenza a 52,00 Hz solo con batteria carica &gt;85%. In questo scenario (batteria scarica e nessun surplus), il Gateway genera invece un'isola fissa sotto-frequenza a 49,50 Hz. L'inverter scatta sulla soglia minima e resta bloccato in protezione per tutta la prova senza riuscire a riagganciarsi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>09:48:53</strong></td>
+                        <td><span class="badge badge-danger">Log Inverter + Multimetro</span><br><small>Errore 18x46 (F-L1 Max2)</small></td>
+                        <td>Batteria al 50%<br>Prova diurna breve</td>
+                        <td><strong>Picco di sovra-frequenza allo stacco.</strong> Nel primo istante lo stacco genera un picco a <strong>~53 Hz</strong> confermato sia dal multimetro che dal codice di errore Max2 registrato dall'inverter SolarEdge; a FV spento, l'isola ricade a ~49,5 Hz come nel primo test. Il picco a 53 Hz è un curtailment eccessivo operato dal Gateway in presenza di surplus FV reale, nonostante il margine di assorbimento della batteria.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>09:58:14</strong></td>
+                        <td><span class="badge badge-warning">Log Inverter</span><br><small>Errore 18x7B (Err. Startup)</small></td>
+                        <td>In Isola (diurna)</td>
+                        <td><strong>Mancato Riaggancio (Startup Fallito).</strong> Dopo i 10 minuti di osservazione previsti dalla norma, l'inverter tenta il riavvio automatico ma fallisce la sincronizzazione poiché i parametri della micro-rete generati dal Gateway sono fuori tolleranza (bloccati a 49,50 Hz rispetto ai 50 Hz nominali richiesti dalla CEI 0-21).</td>
+                    </tr>
+					<tr>
+                        <td><strong>In serata</strong></td>
+                        <td><span class="badge badge-info">Solo Multimetro</span><br><small>Nessun errore a log inverter</small></td>
+                        <td>Batteria &gt;85%<br>Terza prova</td>
+                        <td><strong>Blocco immediato a 52,00 Hz.</strong> Con batteria quasi carica, il Gateway configura la micro-rete direttamente a 52,00 Hz (valore misurato accuratamente via multimetro). L'inverter SolarEdge va istantaneamente in blocco di protezione (spia rossa fissa) impedendo il funzionamento, ma a differenza dei test diurni questo comportamento è corretto.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Soluzione e Verifica Proposta:</h3>
+			<p>La causa del blocco perenne è l'impostazione di un <strong>profilo di rete (Grid Code) errato o non aggiornato</strong> nel firmware del Tesla Gateway 2. Invece di generare una micro-rete standard a 50,00 Hz, il Gateway applica un <strong>setpoint fisso e intenzionale a 49,50 Hz</strong>; questa frequenza, pur essendo stabile, si trova al di sotto delle rigide <strong>soglie di riconnessione</strong> previste dalla normativa italiana (CEI 0-21) per gli inverter fotovoltaici, costringendo il SolarEdge a rimanere <strong>perennemente in protezione (Min2)</strong> anche se la batteria è scarica (30-50%) e pronta a ricevere energia.</p>
+			<br>
+			<p>La soluzione richiede l'intervento dell'<strong>assistenza Tesla o dell'installatore</strong> tramite l'app <strong>Tesla Pros</strong> per configurare correttamente il profilo di isola (<em>Island Mode Profile</em>). È necessario forzare da remoto un <strong>aggiornamento firmware del Gateway 2</strong> e reimpostare i parametri di <em>Frequency Shift</em>, allineandoli alla normativa CEI 0-21 coordinata con inverter AC; questo costringerà il Gateway a stabilizzare l'isola tassativamente a <strong>50,00 Hz costanti</strong>, permettendo al SolarEdge di completare la procedura di <strong>riaggancio automatica</strong> in totale sicurezza.</p>
+
+            <h3>Media Collegati:</h3>
+            <div class="media-container">
+                <p><strong>[IMMAGINE: SCREENSHOT REGISTRO ERRORI INVERTER]</strong></p>
+                <img src="log_solaredge.jpeg" alt="Registro Errori Inverter SolarEdge - Codici 18x46 e 18x49" class="media-slot">
+            </div>
+
+            <div class="media-container">
+                <p><strong>[VIDEO: PROVA TRANSIZIONE OFF-GRID]</strong></p>
+                <p style="font-size: 9.5pt; color: var(--text-muted); margin-top: -5px; font-style: italic;">Nota: il filmato si riferisce esclusivamente alla prima prova delle ore 08:06:31</p>
+                <video controls class="media-slot" style="width:100%; max-width:600px;">
+                    <source src="off_grid.mp4" type="video/mp4">
+                    Il tuo browser non supporta la riproduzione di questo video.
+                </video>
+            </div>
+        </div>
+
+        <!-- PUNTO 2 -->
+        <div class="section" id="punto-2">
+            <h2>Punto 2: Installazione Barre LED Esterne e Adeguamento Cablaggio (Casetta in Legno)</h2>
+            <p>Questo lavoro prevede il montaggio di barre LED per illuminare la zona lavabo esterna e la sistemazione del cavo interno ed esterno destinato alla telecamera di sicurezza.</p>
+            
+            <h3>Dettagli delle lavorazioni richieste:</h3>
+            <ul>
+                <li><strong>Posa Linea LED Esterna:</strong> Vanno montate delle barre LED per esterni per illuminare l'area del lavandino. Le barre non devono fare tutto il giro della struttura, ma vanno messe solo sui due lati che formano l'angolo esterno (quello mostrato nella foto allegata).</li>
+                <li><strong>Alimentazione Interna (Idea):</strong> Si può valutare di usare la scatola da parete tipo 508 già presente sulla parete interna (quella con lo spazio per 8 frutti stretti o 4 larghi/Schuko) per prendere la corrente. In alternativa, si può prendere in considerazione anche la scatola di derivazione principale situata sul lato opposto della casetta.</li>
+                <li><strong>Posizionamento Interruttore:</strong> Bisogna decidere se conviene mettere l'interruttore di comando delle barre LED all'interno o all'esterno.</li>
+                <li><strong>Modifica Canalina PVC:</strong> C'è da allungare e sistemare l'attuale canalina rigida o flessibile per far passare i nuovi fili dei LED in modo pulito.</li>
+                <li><strong>Occultamento Cavo Telecamera:</strong> Bisogna nascondere il cavo dell'alimentazione in bassa tensione (colore nero) della telecamera esterna dentro la canalina, così eliminiamo del tutto i fili volanti.</li>
+            </ul>
+
+            <h3>Media Collegati:</h3>
+            <div class="media-container">
+                <p><strong>[IMMAGINE: VISTA ESTERNA ED ANGOLO PER LE BARRE LED]</strong></p>
+                <img src="esterno_casetta.jpeg" alt="Esterno Casetta - Dettaglio Angolo e Lati da Coprire" class="media-slot">
+            </div>
+
+            <div class="media-container">
+                <p><strong>[IMMAGINE: SCATOLA INTERNA E CANALINA PVC DI DERIVAZIONE]</strong></p>
+                <img src="interno_casetta.jpeg" alt="Interno Casetta - Punto di Prelievo Elettrico" class="media-slot">
+            </div>
+        </div>
+
+        <!-- PUNTO 3 -->
+        <div class="section" id="punto-3">
+            <h2>Punto 3: Installazione Terzo Punto Luce Esterno</h2>
+            <p>Qui l'obiettivo è predisporre un terzo punto luce sulla parete esterna della casa, precisamente vicino all'angolo della finestra della camera da letto. Serve solo il lavoro elettrico (fili, scatole e predisposizione), senza montare la lampada vera e propria.</p>
+            
+            <h3>Dettagli e spunti per la verifica (Ipotesi di lavoro):</h3>
+            <ul>
+                <li><strong>Altezza e Allineamento:</strong> La nuova uscita esterna deve essere perfettamente in linea e alla stessa altezza dei due punti luce già presenti sulla facciata.</li>
+                <li><strong>Passaggio da dentro a fuori:</strong> Bisogna trovare il punto migliore nella camera da letto per intercettare la corrente e fare il foro passante verso l'esterno.</li>
+                <li><strong>Valutazione traccia esistente:</strong> Guardando le foto della parete grezza prima dell'intonaco, si può valutare se sfruttare parzialmente la vecchia traccia e la canalina della tapparella motorizzata per infilare i nuovi cavi, così da limitare al minimo i lavori di muratura.</li>
+            </ul>
+
+            <h3>Media Collegati:</h3>
+            <div class="media-container">
+                <p><strong>[IMMAGINE: PARETE ESTERNA E ALLINEAMENTO CON I PUNTI LUCE ESISTENTI]</strong></p>
+                <img src="Esterno_punto_luce.jpeg" alt="Prospetto Esterno - Posizionamento Terzo Punto Luce" class="media-slot">
+            </div>
+
+            <div class="media-container">
+                <p><strong>[IMMAGINE: PARETE INTERNA CAMERA DA LETTO - STATO ATTUALE]</strong></p>
+                <img src="camera.jpeg" alt="Interno Stanza - Finestra e Posizione Comandi" class="media-slot">
+            </div>
+
+            <div class="media-container">
+                <p><strong>[IMMAGINE: DETTAGLIO STRUTTURALE TRACCE E CONDUZIONI GREZZE]</strong></p>
+                <img src="camera_senza_intonaco.jpeg" alt="Storico Cantiere - Dettaglio Canalina Tapparella e Passaggi Sotto Intonaco" class="media-slot">
+            </div>
+        </div>
+
+        <!-- PUNTO 4 -->
+        <div class="section" id="punto-4">
+            <h2>Punto 4: Installazione Ventola Estrattore Bagno Superiore</h2>
+            <p>Il lavoro consiste nel montare un sistema di aspirazione forzata nel bagnetto del piano di sopra, sfruttando i fili elettrici che escono già dalla parete.</p>
+            
+            <h3>Dettagli e spunti per la verifica (Ipotesi di lavoro):</h3>
+            <ul>
+                <li><strong>Esecuzione Foro Passante:</strong> Bisogna fare un buco (carotaggio) nel muro perimetrale verso l'esterno per scaricare l'aria, montando poi la griglia di protezione fuori.</li>
+                <li><strong>Collegamenti Elettrici:</strong> La ventola va cablata direttamente sui cavi predisposti a parete sopra i sanitari.</li>
+                <li><strong>Controllo Strutturale:</strong> Va scelta la posizione esatta per il foro facendo attenzione a non intercettare i tubi sotto traccia e mantenendosi alla giusta distanza dalla trave in legno del soffitto.</li>
+            </ul>
+
+            <h3>Media Collegati:</h3>
+            <div class="media-container">
+                <p><strong>[IMMAGINE: PREDISPOSIZIONE ELETTRICA E PARETE PER FORO ESTRATTORE]</strong></p>
+                <img src="ventola.jpeg" alt="Bagno Superiore - Cavi predisposti e prossimità trave" class="media-slot">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
